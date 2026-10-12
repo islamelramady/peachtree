@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Peachtree المبسطة | محاضرة المحاسبة المحوسبة</title>
+<meta name="description" content="شرح مبسّط وممتع لمحاضرة برنامج Peachtree (Sage 50): المميزات، المهام المحاسبية الخمس، كوميك مصري، ومحاكي تفاعلي — عربي وإنجليزي.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="icon" href="data:image/svg+xml,&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'&gt;&lt;circle cx='50' cy='58' r='34' fill='%23FF8C42'/&gt;&lt;path d='M50 24 Q50 6 74 8 Q70 26 50 24 Z' fill='%232E7D5B'/&gt;&lt;/svg&gt;">
+</head>
+<body>
+
+<div class="scroll-progress"><div class="scroll-progress-bar" id="scrollBar"></div></div>
+<canvas id="confetti" aria-hidden="true"></canvas>
+
+<nav class="topbar" id="topbar">
+  <a class="brand" href="#hero">
+    <svg class="brand-logo" viewBox="0 0 100 100" aria-hidden="true">
+      <circle cx="50" cy="58" r="34" fill="#FF8C42"/>
+      <path d="M50 24 Q50 6 74 8 Q70 26 50 24 Z" fill="#2E7D5B"/>
+      <path d="M50 58 Q38 58 36 70" stroke="#d96b1f" stroke-width="3" fill="none" stroke-linecap="round"/>
+    </svg>
+    <span class="brand-name" data-ar="مقهى Peachtree" data-en="Peachtree Café"></span>
+  </a>
+  <button class="hamburger" id="hamburger" aria-label="menu" data-ar="☰" data-en="☰">☰</button>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#intro" data-ar="المميزات" data-en="Intro"></a></li>
+    <li><a href="#tasks" data-ar="المهام الخمس" data-en="5 Tasks"></a></li>
+    <li><a href="#comic" data-ar="كوميك" data-en="Comic"></a></li>
+    <li><a href="#simulator" data-ar="محاكي البرنامج" data-en="Simulator"></a></li>
+    <li><a href="#modules" data-ar="الأنظمة الفرعية" data-en="Modules"></a></li>
+    <li><a href="#install" data-ar="التثبيت" data-en="Install"></a></li>
+    <li><a href="#ledgers" data-ar="الدفاتر" data-en="Ledgers"></a></li>
+    <li><a href="#quiz" data-ar="كويز" data-en="Quiz"></a></li>
+  </ul>
+  <div class="nav-actions">
+    <button class="lang-toggle" id="langToggle" aria-label="switch language">EN</button>
+    <button class="theme-toggle" id="themeToggle" aria-label="switch theme">🌙</button>
+  </div>
+</nav>
+
+<header class="hero" id="hero">
+  <div class="blob b1"></div>
+  <div class="blob b2"></div>
+  <div class="blob b3"></div>
+  <div class="floaters" aria-hidden="true">
+    <span class="floater f1">🍑</span>
+    <span class="floater f2">📒</span>
+    <span class="floater f3">📦</span>
+    <span class="floater f4">💰</span>
+    <span class="floater f5">🧾</span>
+    <span class="floater f6">🏦</span>
+  </div>
+  <div class="wrap hero-inner">
+    <div class="hero-badge" data-ar="محاضرة محاسبة محوسبة · Computerized Accounting" data-en="Computerized Accounting · محاضرة محاسبة محوسبة"></div>
+    <h1 class="hero-title">
+      <span class="hero-logo">
+        <svg viewBox="0 0 100 100" aria-hidden="true">
+          <circle cx="50" cy="58" r="34" fill="#FF8C42"/>
+          <path d="M50 24 Q50 6 74 8 Q70 26 50 24 Z" fill="#2E7D5B"/>
+        </svg>
+      </span>
+      Peachtree <span class="hero-sub" data-ar="بأسلوب مبسّط" data-en="Made Simple"></span>
+    </h1>
+    <p class="hero-typed-line" aria-live="polite"><span id="typed"></span><span class="cursor">|</span></p>
+    <p class="hero-desc" data-ar="شرح ممتر للمحاضرة من أول المميزات لحد المهام المحاسبية الخمس الرئيسية في برنامج Peachtree (Sage 50) — مع كوميك مصري ومحاكي تفاعلي تلمس فيه أصابعك القوائم." data-en="A tidy recap of the lecture: from Peachtree (Sage 50) advantages to the five core accounting tasks — with an Egyptian comic strip and a hands-on menu simulator."></p>
+    <div class="hero-btns">
+      <a class="btn btn-primary" href="#intro" data-ar="ابدأ الشرح ↓" data-en="Start the lecture ↓"></a>
+      <a class="btn btn-ghost" href="#comic" data-ar="فاصل كوميك 😄" data-en="Comic break 😄"></a>
+    </div>
+    <div class="hero-chips">
+      <span class="chip">Sage 50</span>
+      <span class="chip" data-ar="شركة Bellwether Garden Supply" data-en="Bellwether Garden Supply"></span>
+      <span class="chip">FIFO</span>
+      <span class="chip">Aged Receivables</span>
+      <span class="chip" data-ar="كوميك مصري" data-en="Egyptian Comic"></span>
+    </div>
+  </div>
+  <a class="scroll-hint" href="#intro" aria-label="scroll down">↓</a>
+</header>
+
+<main>
+
+<section class="section" id="intro">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-kicker" data-ar="الجزء الأول" data-en="Part 1"></div>
+      <h2 class="sec-title" data-ar="إيه هو Peachtree وليه بنستخدمه؟" data-en="What is Peachtree &amp; why use it?"></h2>
+      <p class="sec-sub" data-ar="برنامج محاسبي جاهز للشركات الصغيرة والمتوسطة، ومن أشهر البرامج المحاسبية مع QuickBooks. البرنامج بيدّي المنشأة 4 ميزات أساسية:" data-en="Ready-made accounting software for small &amp; medium businesses — one of the most popular packages alongside QuickBooks. It gives the business 4 core advantages:"></p>
+    </div>
+    <div class="grid grid-4">
+      <article class="card feature-card reveal">
+        <div class="feature-icon fi-1">⏱️</div>
+        <h3 data-ar="معلومات دقيقة وفي وقتها" data-en="Timely &amp; Accurate Info"></h3>
+        <p data-ar="الإدارة تاخد القرار المالي والتشغيلي صح وفي الوقت المناسب." data-en="Management makes sound financial and operational decisions, on time."></p>
+      </article>
+      <article class="card feature-card reveal">
+        <div class="feature-icon fi-2">💵</div>
+        <h3 data-ar="تتبع النقدية داخلة وخارجة" data-en="Track Cash In &amp; Out"></h3>
+        <p data-ar="متابعة المقبوضات من المبيعات والمصروفات المدفوعة للموردين." data-en="Watch collections from sales and payments made to vendors."></p>
+      </article>
+      <article class="card feature-card reveal">
+        <div class="feature-icon fi-3">📦</div>
+        <h3 data-ar="إدارة المخزون" data-en="Manage Inventory"></h3>
+        <p data-ar="معرفة حركة السلع والكميات المتاحة أولاً بأول." data-en="Know goods movement and on-hand quantities in real time."></p>
+      </article>
+      <article class="card feature-card reveal">
+        <div class="feature-icon fi-4">🧮</div>
+        <h3 data-ar="حساب المرتبات والضرائب" data-en="Payroll &amp; Taxes"></h3>
+        <p data-ar="احتساب مستحقات العاملين والخصومات بدقة وسرعة." data-en="Compute employee dues and deductions accurately and fast."></p>
+      </article>
+    </div>
+    <div class="callout reveal">
+      <span class="callout-emoji">🎯</span>
+      <p data-ar="<b>الآن نروح للمهم المحوري في المحاضرة:</b> المهام المحاسبية الخمس الرئيسية اللي بينفذها البرنامج." data-en="<b>Now the heart of the lecture:</b> the five core accounting tasks the software performs."></p>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt" id="tasks">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-kicker" data-ar="الجزء التاني" data-en="Part 2"></div>
+      <h2 class="sec-title" data-ar="المهام المحاسبية الخمس الرئيسية" data-en="The Five Core Accounting Tasks"></h2>
+      <p class="sec-sub" data-ar="دوس على أي خطوة في كل مهمة عشان تشوف التفاصيل والمسار جوه البرنامج." data-en="Tap any step in each task to see the details and the in-app menu path."></p>
+    </div>
+
+    <article class="task-card task-sale reveal">
+      <div class="task-head">
+        <div class="task-badge tb-green">1</div>
+        <div>
+          <h3 class="task-title" data-ar="عمليات بيع البضائع والخدمات" data-en="Selling Goods &amp; Services"></h3>
+          <p class="task-tag" data-ar="دورة كاملة من 4 خطوات" data-en="A full cycle of 4 steps"></p>
+        </div>
+        <span class="task-emoji">🛒</span>
+      </div>
+      <div class="stepper" id="salesStepper"></div>
+      <div class="step-detail" id="salesDetail"></div>
+      <div class="flow-diagram" aria-hidden="true">
+        <div class="flow-node"><span>👤</span><b data-ar="عميل" data-en="Customer"></b></div>
+        <div class="flow-arrow"></div>
+        <div class="flow-node"><span>📝</span><b data-ar="أمر بيع" data-en="Sales Order"></b></div>
+        <div class="flow-arrow"></div>
+        <div class="flow-node"><span>🧾</span><b data-ar="فاتورة" data-en="Invoice"></b></div>
+        <div class="flow-arrow"></div>
+        <div class="flow-node"><span>💵</span><b data-ar="تحصيل" data-en="Receipts"></b></div>
+        <div class="flow-arrow"></div>
+        <div class="flow-node"><span>🏦</span><b data-ar="إيداع" data-en="Deposit"></b></div>
+      </div>
+    </article>
+
+    <article class="task-card task-buy reveal">
+      <div class="task-head">
+        <div class="task-badge tb-blue">2</div>
+        <div>
+          <h3 class="task-title" data-ar="عمليات شراء البضائع والخدمات" data-en="Purchasing Goods &amp; Services"></h3>
+          <p class="task-tag" data-ar="3 خطوات بس — لأنه مفيش إيداع، فيه سداد" data-en="Only 3 steps — no deposit, payment instead"></p>
+        </div>
+        <span class="task-emoji">🚚</span>
+      </div>
+      <div class="stepper" id="buyStepper"></div>
+      <div class="step-detail" id="buyDetail"></div>
+      <div class="callout callout-small reveal">
+        <span class="callout-emoji">💡</span>
+        <p data-ar="<b>الفرق عن البيع:</b> دورة الشراء أقصر بخطوة لأن الفلوس بتطلع (Payments) مش بتتدخّل." data-en="<b>Difference from selling:</b> the purchase cycle is one step shorter — money goes out (Payments) instead of coming in."></p>
+      </div>
+    </article>
+
+    <article class="task-card task-pay reveal">
+      <div class="task-head">
+        <div class="task-badge tb-yellow">3</div>
+        <div>
+          <h3 class="task-title" data-ar="إدارة الأجور والمرتبات" data-en="Paying Employees (Payroll)"></h3>
+          <p class="task-tag" data-ar="المسار: Tasks → Payroll Entry" data-en="Path: Tasks → Payroll Entry"></p>
+        </div>
+        <span class="task-emoji">🧑‍💼</span>
+      </div>
+      <p class="task-lead" data-ar="بمجرد ما تختار كود الموظف (Employee ID)، البرنامج بيستدعي ساعات العمل ومعدل الأجر تلقائياً، ويحسب الخصومات والضرائب ويلّي بصافي الراتب. جرب بنفسك:" data-en="Just pick the Employee ID and the software instantly pulls hours and pay rate, computes deductions and taxes, and nets out the pay. Try it:"></p>
+      <div class="payroll-demo">
+        <div class="payroll-picker" id="payrollPicker"></div>
+        <div class="payslip" id="payslip"></div>
+      </div>
+    </article>
+
+    <article class="task-card task-inv reveal">
+      <div class="task-head">
+        <div class="task-badge tb-purple">4</div>
+        <div>
+          <h3 class="task-title" data-ar="إدارة وتتبع المخزون" data-en="Managing Inventory"></h3>
+          <p class="task-tag" data-ar="المسار: Maintain → Inventory Items (مش Tasks!)" data-en="Path: Maintain → Inventory Items (not Tasks!)"></p>
+        </div>
+        <span class="task-emoji">📦</span>
+      </div>
+      <div class="warn-strip reveal">
+        <span>⚠️</span>
+        <p data-ar="<b>انتبه للامتحان:</b> المخزون بنُّعرّفه من قائمة <b>Maintain</b> مش <b>Tasks</b> — لأنها بتعرف بيانات جديدة، مش بتسجل عملية." data-en="<b>Watch out:</b> inventory is maintained under <b>Maintain</b>, not <b>Tasks</b> — it defines new records rather than recording a transaction."></p>
+      </div>
+      <p class="task-lead" data-ar="بتدخل بيانات الصنف (Item ID) والوصف، وتحدد طريقة تقييم التكلفة (زي FIFO)، وتراقب الحد الأدنى للمخزون وحد إعادة الطلب." data-en="Enter the Item ID and description, choose the cost method (e.g., FIFO), then monitor the min stock level and the reorder point."></p>
+      <div class="fifo-box">
+        <div class="fifo-title" data-ar="🎬 FIFO — الأول داخل هو الأول خارج" data-en="🎬 FIFO — First In, First Out"></div>
+        <svg class="fifo-svg" viewBox="0 0 760 210" aria-label="FIFO animation">
+          <defs>
+            <marker id="arrhead" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+              <path d="M0 0 L10 5 L0 10 Z" fill="#2E7D5B"/>
+            </marker>
+          </defs>
+          <rect x="10" y="30" width="90" height="90" rx="14" fill="#FFE3C2" stroke="#1E2A26" stroke-width="3"/>
+          <text x="55" y="70" text-anchor="middle" class="svg-lbl" data-ar="المخزن" data-en="Stock"></text>
+          <text x="55" y="95" text-anchor="middle" class="svg-lbl-sm" data-ar="داخل أولاً" data-en="comes in first"></text>
+          <line x1="115" y1="75" x2="690" y2="75" stroke="#2E7D5B" stroke-width="4" stroke-dasharray="12 8" marker-end="url(#arrhead)">
+            <animate attributeName="stroke-dashoffset" from="200" to="0" dur="3s" repeatCount="indefinite"/>
+          </line>
+          <g class="fifo-box fifo-oldest">
+            <rect x="0" y="42" width="64" height="64" rx="10" fill="#FF6B6B" stroke="#1E2A26" stroke-width="3"/>
+            <text x="32" y="80" text-anchor="middle" class="svg-lbl-sm" data-ar="١٠٠ج" data-en="100">100</text>
+            <animateTransform attributeName="transform" type="translate" values="-60;560" dur="6s" begin="0s" repeatCount="indefinite"/>
+            <animate attributeName="opacity" values="1;1;0" keyTimes="0;0.78;1" dur="6s" begin="0s" repeatCount="indefinite"/>
+          </g>
+          <g class="fifo-box">
+            <rect x="0" y="42" width="64" height="64" rx="10" fill="#FF9F43" stroke="#1E2A26" stroke-width="3"/>
+            <text x="32" y="80" text-anchor="middle" class="svg-lbl-sm" data-ar="١١٠ج" data-en="110">110</text>
+            <animateTransform attributeName="transform" type="translate" values="-60;560" dur="6s" begin="-1.5s" repeatCount="indefinite"/>
+            <animate attributeName="opacity" values="1;1;0" keyTimes="0;0.78;1" dur="6s" begin="-1.5s" repeatCount="indefinite"/>
+          </g>
+          <g class="fifo-box">
+            <rect x="0" y="42" width="64" height="64" rx="10" fill="#FFD166" stroke="#1E2A26" stroke-width="3"/>
+            <text x="32" y="80" text-anchor="middle" class="svg-lbl-sm" data-ar="١٢٠ج" data-en="120">120</text>
+            <animateTransform attributeName="transform" type="translate" values="-60;560" dur="6s" begin="-3s" repeatCount="indefinite"/>
+            <animate attributeName="opacity" values="1;1;0" keyTimes="0;0.78;1" dur="6s" begin="-3s" repeatCount="indefinite"/>
+          </g>
+          <g class="fifo-box fifo-newest">
+            <rect x="0" y="42" width="64" height="64" rx="10" fill="#63D68A" stroke="#1E2A26" stroke-width="3"/>
+            <text x="32" y="80" text-anchor="middle" class="svg-lbl-sm" data-ar="١٣٠ج" data-en="130">130</text>
+            <animateTransform attributeName="transform" type="translate" values="-60;560" dur="6s" begin="-4.5s" repeatCount="indefinite"/>
+            <animate attributeName="opacity" values="1;1;0" keyTimes="0;0.78;1" dur="6s" begin="-4.5s" repeatCount="indefinite"/>
+          </g>
+          <rect x="560" y="20" width="130" height="110" rx="14" fill="#DFF5E1" stroke="#1E2A26" stroke-width="3"/>
+          <text x="625" y="55" text-anchor="middle" class="svg-lbl" data-ar="البيع" data-en="Sales"></text>
+          <text x="625" y="80" text-anchor="middle" class="svg-lbl-sm" data-ar="الأقدم يخرج أولاً" data-en="oldest exits first"></text>
+          <text x="625" y="108" text-anchor="middle" class="svg-lbl-sm">🍃</text>
+          <text x="400" y="170" text-anchor="middle" class="svg-lbl" data-ar="الصنف الأقدم تكلفةً هو اللي يُصرف أولاً في FIFO" data-en="Under FIFO the oldest cost layer is issued first"></text>
+          <text x="140" y="150" text-anchor="middle" class="svg-lbl-sm" data-ar="دفعت 100ج قديم → التكلفة 100ج" data-en="paid 100 long ago → cost 100"></text>
+          <text x="450" y="150" text-anchor="middle" class="svg-lbl-sm" data-ar="لو اشتريت بـ 130ج → أقرب تكلفة للسعر الحالي" data-en="bought at 130 → cost closest to today"></text>
+        </svg>
+        <div class="fifo-fields">
+          <span class="mini-chip" data-ar="Item ID" data-en="Item ID"></span>
+          <span class="mini-chip" data-ar="الوصف" data-en="Description"></span>
+          <span class="mini-chip">FIFO</span>
+          <span class="mini-chip" data-ar="الحد الأدنى" data-en="Min Level"></span>
+          <span class="mini-chip" data-ar="Qty on Hand" data-en="Qty on Hand"></span>
+          <span class="mini-chip" data-ar="حد إعادة الطلب" data-en="Reorder Point"></span>
+        </div>
+      </div>
+    </article>
+
+    <article class="task-card task-rep reveal">
+      <div class="task-head">
+        <div class="task-badge tb-red">5</div>
+        <div>
+          <h3 class="task-title" data-ar="استخراج التقارير لاتخاذ القرارات" data-en="Reports for Decision Making"></h3>
+          <p class="task-tag" data-ar="المسار: Reports &amp; Forms → Accounts Receivable → Aged Receivables" data-en="Path: Reports &amp; Forms → Accounts Receivable → Aged Receivables"></p>
+        </div>
+        <span class="task-emoji">📊</span>
+      </div>
+      <p class="task-lead" data-ar="تقرير أعمار الديون (Aged Receivables) بيوزّع فلوس العملاء حسب مدة التأخير، والإدارة بتاخد بيه قرار حاسم:" data-en="The Aged Receivables report splits customer debt by how overdue it is — and management acts on it decisively:"></p>
+      <div class="aged" id="agedChart"></div>
+      <div class="decision-card reveal">
+        <div class="decision-badge" data-ar="قرار إداري" data-en="Management Action"></div>
+        <div class="decision-body">
+          <div class="decision-row"><span class="dt dt-good" data-ar="✅ لسه في المدة" data-en="✅ Not due yet"></span><p data-ar="متابعة عادية وسداد في موعده." data-en="Business as usual, pays on time."></p></div>
+          <div class="decision-row"><span class="dt dt-warn" data-ar="⚠️ متأخر ٣٠-٦٠ يوم" data-en="⚠️ 30–60 days late"></span><p data-ar="اتصال وتذكير بالسداد + مراجعة الحد الائتماني." data-en="Call &amp; reminder + review the credit limit."></p></div>
+          <div class="decision-row"><span class="dt dt-bad" data-ar="⛔ متأخر ٩٠+ يوم" data-en="⛔ 90+ days late"></span><p data-ar="تحصيل فوري، تقليل أو إيقاف التعامل مع العميل." data-en="Collect now, reduce the credit limit — or stop dealing."></p></div>
+        </div>
+        <p class="decision-tools" data-ar="خصائص التقرير: تصفية Filter · عرض Display · طباعة · تصدير PDF" data-en="Report options: Filter · Display · Print · Export as PDF"></p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="section" id="comic">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-kicker" data-ar="فاصل كوميك" data-en="Comic Break"></div>
+      <h2 class="sec-title" data-ar="القصة بالكوميك المصري 🇪🇬" data-en="The Story, Egyptian-Comic Style 🇪🇬"></h2>
+      <p class="sec-sub" data-ar="إزاي البيع والشراء بيحصلوا جوه البرنامج — بأسلوب دمه خفيف." data-en="How selling and purchasing happen inside the software — nice and light."></p>
+    </div>
+
+    <div class="comic-strip-title reveal" data-ar="🛒 شريط الأول: دورة البيع" data-en="🛒 Strip 1: The Sales Cycle"></div>
+    <div class="comic-strip">
+      <div class="comic-panel cp1 reveal">
+        <div class="panel-tag">1</div>
+        <div class="panel-label" data-ar="أمر المبيعات" data-en="Sales Order"></div>
+        <div class="panel-scene">
+          <svg class="char" viewBox="0 0 100 130" aria-hidden="true">
+            <path d="M18 130 L18 92 Q50 74 82 92 L82 130 Z" fill="#2BB3A3"/>
+            <circle cx="50" cy="48" r="30" fill="#F2C49B"/>
+            <path d="M20 44 Q50 6 80 44 Q80 22 50 16 Q20 22 20 44 Z" fill="#26221F"/>
+            <circle cx="40" cy="50" r="3.4" fill="#26221F"/><circle cx="60" cy="50" r="3.4" fill="#26221F"/>
+            <path d="M41 64 Q50 72 59 64" stroke="#26221F" stroke-width="3" fill="none" stroke-linecap="round"/>
+          </svg>
+          <div class="bubble bubble-left">
+            <p data-ar="أهلاً بيك! عايز ٥٠ كرتونة سماد لحد آخر الأسبوع 🌱" data-en="Hey! I need 50 cartons of fertilizer by end of week 🌱"></p>
+          </div>
+        </div>
+        <div class="panel-scene">
+          <svg class="char" viewBox="0 0 100 130" aria-hidden="true">
+            <path d="M18 130 L18 92 Q50 74 82 92 L82 130 Z" fill="#2E7D5B"/>
+            <circle cx="50" cy="48" r="30" fill="#F2C49B"/>
+            <path d="M20 44 Q50 6 80 44 Q80 22 50 16 Q20 22 20 44 Z" fill="#3A2E25"/>
+            <path d="M30 62 Q50 74 70 62" stroke="#3A2E25" stroke-width="7" fill="none" stroke-linecap="round"/>
+            <circle cx="40" cy="50" r="3.4" fill="#26221F"/><circle cx="60" cy="50" r="3.4" fill="#26221F"/>
+            <path d="M41 66 Q50 74 59 66" stroke="#26221F" stroke-width="3" fill="none" stroke-linecap="round"/>
+          </svg>
+          <div class="bubble bubble-right">
+            <p data-ar="ماشي! هسجّل لك أمر بيع Sales Order 📝" data-en="Done! I'll record a Sales Order 📝"></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="comic-panel cp2 reveal">
+        <div class="panel-tag">2</div>
+        <div class="panel-label" data-ar="فاتورة المبيعات" data-en="Sales Invoice"></div>
+        <div class="panel-scene">
+          <svg class="char" viewBox="0 0 100 130" aria-hidden="true">
+            <path d="M18 130 L18 92 Q50 74 82 92 L82 130 Z" fill="#2E7D5B"/>
+            <circle cx="50" cy="48" r="30" fill="#F2C49B"/>
+            <path d="M20 44 Q50 6 80 44 Q80 22 50 16 Q20 22 20 44 Z" fill="#3A2E25"/>
+            <path d="M30 62 Q50 74 70 62" stroke="#3A2E25" stroke-width="7" fill="none" stroke-linecap="round"/>
+            <circle cx="40" cy="50" r="3.4" fill="#26221F"/><circle cx="60" cy="50" r="3.4" fill="#26221F"/>
+            <path d="M41 66 Q50 74 59 66" stroke="#26221F" stroke-width="3" fill="none" stroke-linecap="round"/>
+          </svg>
+          <div class="bubble bubble-left">
+            <p data-ar="استلم الشحنة والفاتورة — شراء بالآجل 🧾" data-en="Take the shipment and the invoice — on credit 🧾"></p>
+          </div>
+        </div>
+        <div class="panel-scene">
+          <svg class="char" viewBox="0 0 100 130" aria-hidden="true">
+            <path d="M18 130 L18 92 Q50 74 82 92 L82 130 Z" fill="#2BB3A3"/>
+            <circle cx="50" cy="48" r="30" fill="#F2C49B"/>
+            <path d="M20 44 Q50 6 80 44 Q80 22 50 16 Q20 22 20 44 Z" fill="#26221F"/>
+            <circle cx="40" cy="50" r="3.4" fill="#26221F"/><circle cx="60" cy="50" r="3.4" fill="#26221F"/>
+            <path d="M41 64 Q50 72 59 64" stroke="#26221F" stroke-width="3" fill="none" stroke-linecap="round"/>
+          </svg>
+          <div class="bubble bubble-right">
+            <p data-ar="تمام، سجّلوا فاتورة من نوع Apply to Sales Order ✅" data-en="Got it — invoice it with Apply to Sales Order ✅"></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="comic-panel cp3 reveal">
+        <div class="panel-tag">3</div>
+        <div class="panel-label" data-ar="تحصيل المقبوضات" data-en="Receipts"></div>
+        <div class="panel-scene">
+          <svg class="char" viewBox="0 0 100 130" aria-hidden="true">
+            <path d="M18 130 L18 92 Q50 74 82 92 L82 130 Z" fill="#2BB3A3"/>
+            <circle cx="50" cy="48" r="30" fill="#F2C49B"/>
+            <path d="M20 44 Q50 6 80 44 Q80 22 50 16 Q20 22 20 44 Z" fill="#26221F"/>
+            <circle cx="40" cy="50" r="3.4" fill="#26221F"/><circle cx="60" cy="50" r="3.4" fill="#26221F"/>
+            <path d="M41 64 Q50 72 59 64" stroke="#26221F" stroke-width="3" fill="none" stroke-linecap="round"/>
+          </svg>
+          <div class="bubble bubble-left">
+            <p data-ar="خد الشيك ده وسدّد بقيّة الفاتورة 💳" data-en="Here's the cheque and the rest of the invoice 💳"></p>
+          </div>
+        </div>
+        <div class="panel-scene">
+          <svg class="char" viewBox="0 0 100 130" aria-hidden="true">
+            <path d="M18 130 L18 92 Q50 74 82 92 L82 130 Z" fill="#2E7D5B"/>
+            <circle cx="50" cy="48" r="30" fill="#F2C49B"/>
+            <path d="M20 44 Q50 6 80 44 Q80 22 50 16 Q20 22 20 44 Z" fill="#3A2E25"/>
+            <path d="M30 62 Q50 74 70 62" stroke="#3A2E25" stroke-width="7" fill="none" stroke-linecap="round"/>
+            <circle cx="40" cy="50" r="3.4" fill="#26221F"/><circle cx="60" cy="50" r="3.4" fill="#26221F"/>
+            <path d="M41 66 Q50 74 59 66" stroke="#26221F" stroke-width="3" fill="none" stroke-linecap="round"/>
+          </svg>
+          <div class="bubble bubble-right">
+            <p data-ar="تحصيل Receipts — سجّلناه Apply to Invoices 🧾" data-en="Receipts booked — Apply to Invoices 🧾"></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="comic-panel cp4 reveal">
+        <div class="panel-tag">4</div>
+        <div class="panel-label" data-ar="الإيداع في البنك" data-en="Select for Deposit"></div>
+        <div class="panel-scene">
+          <div class="comic-prop bank">🏦</div>
+          <svg class="char" viewBox="0 0 100 130" aria-hidden="true">
+            <path d="M18 130 L18 92 Q50 74 82 92 L82 130 Z" fill="#2E7D5B"/>
+            <circle cx="50" cy="48" r="30" fill="#F2C49B"/>
+            <path d="M20 44 Q50 6 80 44 Q80 22 50 16 Q20 22 20 44 Z" fill="#3A2E25"/>
+            <path d="M30 62 Q50 74 70 62" stroke="#3A2E25" stroke-width="7" fill="none" stroke-linecap="round"/>
+            <circle cx="40" cy="50" r="3.4" fill="#26221F"/><circle cx="60" cy="50" r="3.4" fill="#26221F"/>
+            <path d="M41 66 Q50 74 59 66" stroke="#26221F" stroke-width="3" fill="none" stroke-linecap="round"/>
+          </svg>
+          <div class="bubble bubble-left">
+            <p data-ar="النهاردة قسيمة إيداع: الكاش والشيكات كلهم في البنك 💰" data-en="Today's deposit slip: all cash &amp; cheques to the bank 💰"></p>
+          </div>
+        </div>
+        <div class="panel-scene">
+          <div class="comic-prop coin">🪙</div>
+          <svg class="char" viewBox="0 0 100 130" aria-hidden="true">
+            <path d="M18 130 L18 92 Q50 74 82 92 L82 130 Z" fill="#2BB3A3"/>
+            <circle cx="50" cy="48" r="30" fill="#F2C49B"/>
+            <path d="M20 44 Q50 6 80 44 Q80 22 50 16 Q20 22 20 44 Z" fill="#26221F"/>
+            <circle cx="40" cy="50" r="3.4" fill="#26221F"/><circle cx="60" cy="50" r="3.4" fill="#26221F"/>
+            <path d="M41 64 Q50 72 59 64" stroke="#26221F" stroke-width="3" fill="none" stroke-linecap="round"/>
+          </svg>
+          <div class="bubble bubble-right">
+            <p data-ar="وسيبها على الله… يعني على Select for Deposit 😎" data-en="And off it goes — Select for Deposit 😎"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="comic-strip-title reveal" data-ar="🚚 شريط تاني: دورة الشراء" data-en="🚚 Strip 2: The Purchase Cycle"></div>
+    <div class="comic-strip strip-3">
+      <div class="comic-panel cp5 reveal">
+        <div class="panel-tag">1</div>
+        <div class="panel-label" data-ar="أمر الشراء" data-en="Purchase Order"></div>
+        <div class="panel-scene">
+          <svg class="char" viewBox="0 0 100 130" aria-hidden="true">
+            <path d="M18 130 L18 92 Q50 74 82 92 L82 130 Z" fill="#2E7D5B"/>
+            <circle cx="50" cy="48" r="30" fill="#F2C49B"/>
+            <path d="M20 44 Q50 6 80 44 Q80 22 50 16 Q20 22 20 44 Z" fill="#3A2E25"/>
+            <path d="M30 62 Q50 74 70 62" stroke="#3A2E25" stroke-width="7" fill="none" stroke-linecap="round"/>
+            <circle cx="40" cy="50" r="3.4" fill="#26221F"/><circle cx="60" cy="50" r="3.4" fill="#26221F"/>
+            <path d="M41 66 Q50 74 59 66" stroke="#26221F" stroke-width="3" fill="none" stroke-linecap="round"/>
+          </svg>
+          <div class="bubble bubble-left">
+            <p data-ar="بعت طلب شراء للمورد — Purchase Order 📄" data-en="Sent the vendor a Purchase Order 📄"></p>
+          </div>
+        </div>
+        <div class="panel-scene">
+          <div class="comic-prop truck">🚛</div>
+          <svg class="char" viewBox="0 0 100 130" aria-hidden="true">
+            <path d="M18 130 L18 92 Q50 74 82 92 L82 130 Z" fill="#4C6EF5"/>
+            <circle cx="50" cy="48" r="30" fill="#F2C49B"/>
+            <path d="M20 44 Q50 6 80 44 Q80 22 50 16 Q20 22 20 44 Z" fill="#26221F"/>
+            <circle cx="40" cy="50" r="3.4" fill="#26221F"/><circle cx="60" cy="50" r="3.4" fill="#26221F"/>
+            <path d="M41 64 Q50 72 59 64" stroke="#26221F" stroke-width="3" fill="none" stroke-linecap="round"/>
+          </svg>
+          <div class="bubble bubble-right">
+            <p data-ar="الشحنة في الطريق! هنجهّزلك الفاتورة 📦" data-en="Shipment on the way! Invoice to follow 📦"></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="comic-panel cp6 reveal">
+        <div class="panel-tag">2</div>
+        <div class="panel-label" data-ar="استلام البضاعة والفاتورة" data-en="Receive Inventory"></div>
+        <div class="panel-scene">
+          <div class="comic-prop boxes">📦📦</div>
+          <svg class="char" viewBox="0 0 100 130" aria-hidden="true">
+            <path d="M18 130 L18 92 Q50 74 82 92 L82 130 Z" fill="#2E7D5B"/>
+            <circle cx="50" cy="48" r="30" fill="#F2C49B"/>
+            <path d="M20 44 Q50 6 80 44 Q80 22 50 16 Q20 22 20 44 Z" fill="#3A2E25"/>
+            <path d="M30 62 Q50 74 70 62" stroke="#3A2E25" stroke-width="7" fill="none" stroke-linecap="round"/>
+            <circle cx="40" cy="50" r="3.4" fill="#26221F"/><circle cx="60" cy="50" r="3.4" fill="#26221F"/>
+            <path d="M41 66 Q50 74 59 66" stroke="#26221F" stroke-width="3" fill="none" stroke-linecap="round"/>
+          </svg>
+          <div class="bubble bubble-left">
+            <p data-ar="استلمت الصناديق والفاتورة — Purchases/Receive Inventory ✅" data-en="Boxes &amp; invoice received — Purchases/Receive Inventory ✅"></p>
+          </div>
+        </div>
+        <div class="panel-scene">
+          <svg class="char" viewBox="0 0 100 130" aria-hidden="true">
+            <path d="M18 130 L18 92 Q50 74 82 92 L82 130 Z" fill="#2BB3A3"/>
+            <circle cx="50" cy="48" r="30" fill="#F2C49B"/>
+            <path d="M20 44 Q50 6 80 44 Q80 22 50 16 Q20 22 20 44 Z" fill="#26221F"/>
+            <circle cx="40" cy="50" r="3.4" fill="#26221F"/><circle cx="60" cy="50" r="3.4" fill="#26221F"/>
+            <path d="M41 64 Q50 72 59 64" stroke="#26221F" stroke-width="3" fill="none" stroke-linecap="round"/>
+          </svg>
+          <div class="bubble bubble-right">
+            <p data-ar="المخزون اتحدّث، والحساب اتفتح Apply to Invoices 📒" data-en="Stock updated, payable opened — Apply to Invoices 📒"></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="comic-panel cp7 reveal">
+        <div class="panel-tag">3</div>
+        <div class="panel-label" data-ar="سداد المستحقات" data-en="Payments"></div>
+        <div class="panel-scene">
+          <div class="comic-prop money">💸</div>
+          <svg class="char" viewBox="0 0 100 130" aria-hidden="true">
+            <path d="M18 130 L18 92 Q50 74 82 92 L82 130 Z" fill="#2E7D5B"/>
+            <circle cx="50" cy="48" r="30" fill="#F2C49B"/>
+            <path d="M20 44 Q50 6 80 44 Q80 22 50 16 Q20 22 20 44 Z" fill="#3A2E25"/>
+            <path d="M30 62 Q50 74 70 62" stroke="#3A2E25" stroke-width="7" fill="none" stroke-linecap="round"/>
+            <circle cx="40" cy="50" r="3.4" fill="#26221F"/><circle cx="60" cy="50" r="3.4" fill="#26221F"/>
+            <path d="M41 66 Q50 74 59 66" stroke="#26221F" stroke-width="3" fill="none" stroke-linecap="round"/>
+          </svg>
+          <div class="bubble bubble-left">
+            <p data-ar="الشيك جاي يا معلم — Tasks → Payments 🏃" data-en="Cheque is coming — Tasks → Payments 🏃"></p>
+          </div>
+        </div>
+        <div class="panel-scene">
+          <svg class="char" viewBox="0 0 100 130" aria-hidden="true">
+            <path d="M18 130 L18 92 Q50 74 82 92 L82 130 Z" fill="#FFC53D"/>
+            <circle cx="50" cy="48" r="30" fill="#F2C49B"/>
+            <path d="M20 44 Q50 6 80 44 Q80 22 50 16 Q20 22 20 44 Z" fill="#26221F"/>
+            <circle cx="40" cy="50" r="3.4" fill="#26221F"/><circle cx="60" cy="50" r="3.4" fill="#26221F"/>
+            <path d="M41 64 Q50 72 59 64" stroke="#26221F" stroke-width="3" fill="none" stroke-linecap="round"/>
+          </svg>
+          <div class="bubble bubble-right">
+            <p data-ar="والفكة اتسدّدت… يلّا نموت بقى كفاية 💀😂" data-en="And the balance cleared… alright, I'm done 😂"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt" id="simulator">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-kicker" data-ar="تجربة تفاعلية" data-en="Hands-on"></div>
+      <h2 class="sec-title" data-ar="محاكي واجهة Peachtree" data-en="Peachtree Interface Simulator"></h2>
+      <p class="sec-sub" data-ar="دوس على أي قائمة من شريط القوائم، وبعدين على الأمر — هيفتحلك الشرح بتاعه كأنك جوه البرنامج." data-en="Click the menu bar, then any command — the explanation opens exactly as inside the app."></p>
+    </div>
+
+    <div class="mock reveal">
+      <div class="mock-titlebar">
+        <div class="mock-dots"><i></i><i></i><i></i></div>
+        <span class="mock-title" data-ar="Bellwether Garden Supply" data-en="Bellwether Garden Supply"></span>
+        <span class="mock-hint" data-ar="محاكاة تعليمية" data-en="Educational mock-up"></span>
+      </div>
+      <div class="mock-body">
+        <div class="mock-menubar" id="mockMenubar"></div>
+        <div class="mock-content">
+          <aside class="mock-nav">
+            <div class="mock-nav-title" data-ar="Navigate" data-en="Navigate"></div>
+            <div class="centers" id="mockCenters"></div>
+          </aside>
+          <div class="mock-main">
+            <div class="mock-drop" id="mockDropdown" hidden></div>
+            <div class="mock-info" id="mockInfo">
+              <div class="mock-info-empty" data-ar="👆 اختر أمر من القوائم عشان تتعلم بيعمل إيه" data-en="👆 Pick a command from the menus to learn what it does"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid grid-3 mt">
+      <article class="card mini-card reveal">
+        <div class="mini-ico">🏷️</div>
+        <h3 data-ar="شريط العنوان" data-en="Title Bar"></h3>
+        <p data-ar="بيعرض اسم الشركة المفتوحة حالياً." data-en="Shows the name of the currently open company."></p>
+      </article>
+      <article class="card mini-card reveal">
+        <div class="mini-ico">📜</div>
+        <h3 data-ar="شريط القوائم" data-en="Menu Bar"></h3>
+        <p data-ar="File (فتح Ctrl+O · جديد Ctrl+N) و Edit (بحث Ctrl+F) وباقي القوائم." data-en="File (Open Ctrl+O · New Ctrl+N), Edit (Find Ctrl+F), and the rest."></p>
+      </article>
+      <article class="card mini-card reveal">
+        <div class="mini-ico">🧭</div>
+        <h3 data-ar="شريط التنقل الجانبي" data-en="Navigating Bar"></h3>
+        <p data-ar="على اليسار: 7 مراكز تنقل رئيسية للوصول السريع." data-en="On the left: 7 main navigation centers for quick access."></p>
+      </article>
+    </div>
+
+    <div class="callout reveal">
+      <span class="callout-emoji">🌱</span>
+      <p data-ar="<b>لما تفتح البرنامج:</b> جرّب <b>Explore a sample company</b> على شركة <b>Bellwether Garden Supply</b> — تدرّب على بيانات جاهزة قبل ما تعمل <b>Create a New Company</b> من الصفر." data-en="<b>When the app opens:</b> try <b>Explore a sample company</b> → <b>Bellwether Garden Supply</b> — practice on ready data before <b>Create a New Company</b> from scratch."></p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="modules">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-kicker" data-ar="خلفية نظرية" data-en="Theory Recap"></div>
+      <h2 class="sec-title" data-ar="الأنظمة الفرعية للنظام المحاسبي المحوسب" data-en="Modules of the CAIS"></h2>
+      <p class="sec-sub" data-ar="7 أنظمة فرعية (Subsystems) كل واحد منها بينفذ وظيفة محددة. دوس على الكارت يقلب 👆" data-en="7 subsystems, each performing a specific role. Click a card to flip it 👆"></p>
+    </div>
+    <div class="grid grid-3" id="modulesGrid"></div>
+  </div>
+</section>
+
+<section class="section section-alt" id="components">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-kicker" data-ar="خلفية نظرية" data-en="Theory Recap"></div>
+      <h2 class="sec-title" data-ar="المكونات الأساسية لنظام المعلومات المحاسبي" data-en="Components of the CAIS"></h2>
+      <p class="sec-sub" data-ar="5 عناصر بتكمل بعضها عشان النظام يشتغل." data-en="5 elements that complete each other to make the system work."></p>
+    </div>
+    <div class="grid grid-5" id="componentsGrid"></div>
+    <div class="callout reveal">
+      <span class="callout-emoji">💽</span>
+      <p data-ar="<b>البرمجيات:</b> من أشهر الحزم الجاهزة للشركات الصغيرة والمتوسطة: <b>Peachtree Complete Accounting</b> و <b>QuickBooks</b>." data-en="<b>Software:</b> among the most popular ready-made packages for small &amp; medium firms: <b>Peachtree Complete Accounting</b> and <b>QuickBooks</b>."></p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="install">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-kicker" data-ar="الجانب العملي" data-en="Practical Side"></div>
+      <h2 class="sec-title" data-ar="تثبيت وإلغاء تثبيت البرنامج" data-en="Install &amp; Uninstall"></h2>
+      <p class="sec-sub" data-ar="الخطوات بالترتيب زي ما الدكتورة شرحت." data-en="The steps in order, as taught in the lecture."></p>
+    </div>
+    <div class="tabs reveal">
+      <button class="tab active" id="tabInstall" data-ar="⬇️ خطوات التثبيت" data-en="⬇️ Installation"></button>
+      <button class="tab" id="tabUninstall" data-ar="🗑️ خطوات الإلغاء" data-en="🗑️ Uninstall"></button>
+    </div>
+    <ol class="timeline" id="installTimeline"></ol>
+    <ol class="timeline" id="uninstallTimeline" hidden></ol>
+  </div>
+</section>
+
+<section class="section section-alt" id="ledgers">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-kicker" data-ar="هيكل الحسابات" data-en="Account Structure"></div>
+      <h2 class="sec-title" data-ar="الدفاتر ودليل الحسابات" data-en="Ledgers &amp; the Chart of Accounts"></h2>
+      <p class="sec-sub" data-ar="الأستاذ العام بيلخّص، والدفاتر المساعدة بتفصّل — دوس على أي صف." data-en="The General Ledger summarizes; subsidiary ledgers show detail — click any row."></p>
+    </div>
+    <div class="ledger-diagram reveal">
+      <svg viewBox="0 0 900 330" class="ledger-svg" aria-label="ledgers diagram">
+        <defs>
+          <marker id="larr" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+            <path d="M0 0 L12 6 L0 12 Z" fill="#2E7D5B"/>
+          </marker>
+        </defs>
+        <rect x="330" y="20" width="240" height="92" rx="16" fill="#2E7D5B" stroke="#1E2A26" stroke-width="3"/>
+        <text x="450" y="58" text-anchor="middle" class="svg-lbl-light" data-ar="دفتر الأستاذ العام" data-en="General Ledger"></text>
+        <text x="450" y="86" text-anchor="middle" class="svg-lbl-light-sm" data-ar="أصول · التزامات · حقوق ملكية · إيرادات · مصروفات" data-en="Assets · Liabilities · Equity · Revenue · Expenses"></text>
+        <path class="ledger-line" d="M400 112 L400 170" stroke="#1E2A26" stroke-width="3" stroke-dasharray="10 7"/>
+        <path class="ledger-line" d="M500 112 L500 170" stroke="#1E2A26" stroke-width="3" stroke-dasharray="10 7"/>
+        <g class="ledger-node" data-node="0">
+          <rect x="90" y="170" width="320" height="90" rx="16" fill="#FFD9B3" stroke="#1E2A26" stroke-width="3"/>
+          <text x="250" y="205" text-anchor="middle" class="svg-lbl" data-ar="دفتر مساعد العملاء" data-en="A/R Subsidiary Ledger"></text>
+          <text x="250" y="232" text-anchor="middle" class="svg-lbl-sm" data-ar="تفاصيل العملاء اللي اشتروا بالآجل" data-en="Customer-level credit sales detail"></text>
+        </g>
+        <g class="ledger-node" data-node="1">
+          <rect x="490" y="170" width="320" height="90" rx="16" fill="#BDE8E3" stroke="#1E2A26" stroke-width="3"/>
+          <text x="650" y="205" text-anchor="middle" class="svg-lbl" data-ar="دفتر مساعد الموردين" data-en="A/P Subsidiary Ledger"></text>
+          <text x="650" y="232" text-anchor="middle" class="svg-lbl-sm" data-ar="تفاصيل مشتريات الآجل من الموردين" data-en="Vendor-level credit purchases detail"></text>
+        </g>
+        <path class="ledger-line" d="M250 112 L250 170" stroke="#1E2A26" stroke-width="3" stroke-dasharray="10 7"/>
+        <path class="ledger-line" d="M650 112 L650 170" stroke="#1E2A26" stroke-width="3" stroke-dasharray="10 7"/>
+        <rect x="270" y="290" width="360" height="40" rx="12" fill="#FFC53D" stroke="#1E2A26" stroke-width="3"/>
+        <text x="450" y="316" text-anchor="middle" class="svg-lbl-sm" data-ar="📖 دليل الحسابات: قائمة حصر شاملة بكل حسابات الأستاذ" data-en="📖 Chart of Accounts: comprehensive list of all GL accounts"></text>
+      </svg>
+    </div>
+    <div class="ledger-info card" id="ledgerInfo">
+      <p data-ar="دوس على أي صف في الرسم عشان يشرحلك دوره بناءً على مين بيشتري وبيدفع إمتى." data-en="Click any box in the diagram to see what it records."></p>
+    </div>
+    <div class="grid grid-3 mt">
+      <article class="card mini-card reveal">
+        <div class="mini-ico">📚</div>
+        <h3 data-ar="دليل الحسابات" data-en="Chart of Accounts"></h3>
+        <p data-ar="قائمة حصر شاملة لكل حسابات الأستاذ العام اللي المنشأة بتستخدمها." data-en="A comprehensive listing of every general ledger account the entity uses."></p>
+      </article>
+      <article class="card mini-card reveal">
+        <div class="mini-ico">🧮</div>
+        <h3 data-ar="الأستاذ العام" data-en="General Ledger"></h3>
+        <p data-ar="البيانات الملخصة لكل حساب من الأصول والالتزامات وحقوق الملكية والإيرادات والمصروفات." data-en="Summarized data for each asset, liability, equity, revenue and expense account."></p>
+      </article>
+      <article class="card mini-card reveal">
+        <div class="mini-ico">🔎</div>
+        <h3 data-ar="الدفاتر المساعدة" data-en="Subsidiary Ledgers"></h3>
+        <p data-ar="التفاصيل الدقيقة للحسابات العامة اللي ليها حسابات فرعية كتير." data-en="Detailed records behind control accounts with many individual sub-accounts."></p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="quiz">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-kicker" data-ar="اختبر نفسك" data-en="Quiz Time"></div>
+      <h2 class="sec-title" data-ar="كويز المحاضرة 🎉" data-en="Lecture Quiz 🎉"></h2>
+      <p class="sec-sub" data-ar="5 أسئلة سريعة… شوف فهمت قد إيه." data-en="5 quick questions… see how much you really absorbed."></p>
+    </div>
+    <div class="quiz card reveal" id="quizBox"></div>
+    <div class="quiz-result" id="quizResult" hidden></div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap footer-inner">
+    <div class="footer-brand">
+      <svg class="brand-logo" viewBox="0 0 100 100" aria-hidden="true">
+        <circle cx="50" cy="58" r="34" fill="#FF8C42"/>
+        <path d="M50 24 Q50 6 74 8 Q70 26 50 24 Z" fill="#2E7D5B"/>
+      </svg>
+      <b data-ar="مقهى Peachtree" data-en="Peachtree Café"></b>
+    </div>
+    <p data-ar="صُنع 💚 لطلاب المحاسبة — ملخص محاضرة برنامج Peachtree (Sage 50) لأغراض تعليمية فقط." data-en="Made 💚 for accounting students — a Peachtree (Sage 50) lecture recap for educational use only."></p>
+    <p class="footer-note" data-ar="Peachtree و Sage 50 علامتان تجاريتان لأصحابها، والموقع غير رسمي." data-en="Peachtree and Sage 50 are trademarks of their owners; this site is unofficial."></p>
+  </div>
+</footer>
+
+<button class="to-top" id="toTop" aria-label="back to top" data-ar="↑" data-en="↑">↑</button>
+
+<script src="js/main.js"></script>
+</body>
+</html>
